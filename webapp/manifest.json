@@ -1,0 +1,109 @@
+{
+	"_version": "1.5.0",
+	"start_url": "start.html",
+	"sap.app": {
+		"id": "com.company.ovp.sample",
+		"type": "application",
+		"i18n": "i18n/i18n.properties",
+		"applicationVersion": {
+			"version": "1.2.2"
+		},
+		"title": "{{app_title}}",
+		"description": "{{app_description}}",
+		"ach": "sap",
+		"resources": "resources.json",
+		"dataSources": {
+			"Northwind": {
+				"uri": "/NorthWind/V2/Northwind/Northwind.svc/",
+				"type": "OData",
+				"settings": {
+					"localUri": "localService/Northwind/metadata.xml",
+					"annotations": [
+						"annotation_northwind"
+					]
+				}
+			},
+			"annotation_northwind": {
+				"type": "ODataAnnotation",
+				"uri": "annotations/annotation_northwind.xml",
+				"settings": {
+					"localUri": "annotations/annotation_northwind.xml"
+				}
+			}
+		},
+		"sourceTemplate": {
+			"id": "OVP.cardtemplate",
+			"version": "0.0.0"
+		}
+	},
+	"sap.ui": {
+		"technology": "UI5",
+		"icons": {
+			"icon": ""
+		},
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		},
+		"supportedThemes": [
+			"sap_hcb",
+			"sap_belize"
+		]
+	},
+	"sap.ui5": {
+		"dependencies": {
+			"minUI5Version": "1.32.0",
+			"libs": {
+				"sap.ui.core": {},
+				"sap.m": {},
+				"sap.ui.layout": {},
+				"sap.f": {},
+				"sap.ushell": {},
+				"sap.collaboration": {},
+				"sap.ui.comp": {},
+				"sap.uxap": {},
+				"sap.ovp": {}
+			}
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"uri": "i18n/i18n.properties"
+			},
+			"Northwind": {
+				"dataSource": "Northwind",
+				"settings": {}
+			},
+			"@i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"uri": "i18n/i18n.properties"
+			}
+		},
+		"extends": {
+			"extensions": {}
+		},
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		}
+	},
+	"sap.ovp": {
+		"globalFilterModel": "Northwind",
+		"globalFilterEntityType": "",
+		"cards": {
+			"com.company.ovp.sample_card00": {
+				"model": "Northwind",
+				"template": "sap.ovp.cards.list",
+				"settings": {
+					"title": "{{com.company.ovp.sample_card00_title}}",
+					"subTitle": "{{com.company.ovp.sample_card00_subTitle}}",
+					"entitySet": "Customers",
+					"listType": "condensed",
+					"addODataSelect": "false",
+					"annotationPath": "com.sap.vocabularies.UI.v1.LineItem"
+				}
+			}
+		}
+	}
+}
