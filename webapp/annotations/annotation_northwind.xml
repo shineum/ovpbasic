@@ -42,6 +42,34 @@
 					</Collection>
 				</Annotation>
 			</Annotations>
+			<Annotations Target="NorthwindModel.Product">
+				<Annotation Term="UI.DataPoint" Qualifier="DP_UnitsInStock">
+					<Record Type="UI.DataPointType">
+						<PropertyValue Property="Title" String="{@i18n&gt;DP_UNITSINSTOCK}"/>
+						<PropertyValue Property="Value" Path="UnitsInStock"/>
+						<PropertyValue Property="CriticalityCalculation">
+							<Record Type="UI.CriticalityCalculationType">
+								<PropertyValue Property="ImprovementDirection" EnumMember="UI.ImprovementDirectionType/Maximize"/>
+								<PropertyValue Property="ToleranceRangeLowValue" String="50"/>
+								<PropertyValue Property="DeviationRangeLowValue" String="25"/>
+							</Record>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.LineItem">
+					<Collection>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="ProductName"/>
+						</Record>
+						<Record Type="UI.DataFieldForAnnotation">
+							<PropertyValue Property="Target" AnnotationPath="@UI.DataPoint#DP_UnitsInStock"/>
+						</Record>
+					</Collection>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="NorthwindModel.Product/UnitsInStock">
+				<Annotation Term="CQP.Unit" String="%"/>
+			</Annotations>
 		</Schema>
 	</edmx:DataServices>
 </edmx:Edmx>

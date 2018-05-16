@@ -103,6 +103,20 @@
 					"addODataSelect": "false",
 					"annotationPath": "com.sap.vocabularies.UI.v1.LineItem"
 				}
+			},
+			"com.company.ovp.sample_card01": {
+				"model": "Northwind",
+				"template": "sap.ovp.cards.list",
+				"settings": {
+					"title": "{{com.company.ovp.sample_card01_title}}",
+					"subTitle": "{{com.company.ovp.sample_card01_subTitle}}",
+					"entitySet": "Products",
+					"listType": "condensed",
+					"listFlavor": "bar",
+					"addODataSelect": "false",
+					"dataPointAnnotationPath": "com.sap.vocabularies.UI.v1.DataPoint",
+					"annotationPath": "com.sap.vocabularies.UI.v1.LineItem"
+				}
 			}
 		}
 	}
